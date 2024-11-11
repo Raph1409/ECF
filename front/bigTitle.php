@@ -12,5 +12,4 @@
             <p>Un Voyage au Cœur de la Nature</p>
         </div>
     </div>
-
 </body>
