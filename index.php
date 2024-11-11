@@ -22,7 +22,7 @@
 </header>
 
 <body>
-
+    <?php require 'front/bigTitle.php'; ?>
 </body>
 
 <footer>
