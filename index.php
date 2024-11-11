@@ -20,3 +20,11 @@
 <header>
     <?php require 'front/header.php'; ?>
 </header>
+
+<body>
+
+</body>
+
+<footer>
+    <?php require 'front/footer.php'; ?>
+</footer>

@@ -1,0 +1,16 @@
+/* title color and margin */
+
+footer h3 {
+    color: #FDF1B8;
+    margin-top: 20px;
+}
+
+/* text color and margin */
+
+footer p {
+    color: #FDF1B8;
+}
+
+.margin {
+    margin-top: 20px;
+}
