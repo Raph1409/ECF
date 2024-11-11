@@ -10,7 +10,7 @@
             prend
             tout son sens.
             Notre mission est de préserver la biodiversité, d'éduquer le public à la protection de l'environnement et
-            d'offrir aux animaux un cadre de vie aussi naturel que possible.
+            d'offrir aux animaux un cadre de vie aussi naturel que possible.<br>
             Dans notre zoo, chaque espace est conçu pour recréer les conditions de vie des animaux dans leur habitat
             naturel.
             De grands enclos, des espaces boisés et des zones aquatiques sont aménagés pour favoriser le bien-être des
@@ -26,7 +26,7 @@
             nous permettons à chaque visiteur de mieux comprendre les enjeux écologiques de notre époque.
             De plus, notre engagement va au-delà de la simple exposition : nous participons activement à des projets de
             réintroduction d'espèces menacées et soutenons
-            des initiatives locales pour préserver les écosystèmes fragiles.
+            des initiatives locales pour préserver les écosystèmes fragiles.<br>
             Venez vivre une expérience immersive et enrichissante où le respect de la nature est au cœur de chaque
             action.
             Ensemble, protégeons notre planète et les merveilleuses créatures qui y habitent.
