@@ -22,6 +22,7 @@
 
 <body>
     <?php require 'front/bigTitle.php'; ?>
+    <?php require 'front/contenu.php'; ?>
 </body>
 
 <footer>
