@@ -23,6 +23,7 @@
 <body>
     <?php require 'front/bigTitle.php'; ?>
     <?php require 'front/contenu.php'; ?>
+    <?php require 'front/serviceEtAnimaux.php'; ?>
 </body>
 
 <footer>

@@ -1,0 +1,48 @@
+.titre {
+    background-color: #63340B;
+    width: 80%;
+    height: auto;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.titre h1 {
+    color: #FDF1B8;
+}
+
+.card-title {
+    text-align: center;
+    color: #63340B;
+}
+
+.card-body {
+    background-color: #2B9613;
+}
+
+.card-list {
+    text-align: center;
+    list-style: none;
+}
+
+.card {
+    width: auto;
+    height: auto;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+
+section {
+    width: 80%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.row {
+    text-align: center;
+}
+
+.paragraph {
+    background-color: #2B9613;
+    margin-top: 20px;
+}
