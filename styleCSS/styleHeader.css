@@ -1,0 +1,33 @@
+/* Global */
+
+header {
+    background-color: #2B9613;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-nav {
+    float: right;
+}
+
+/* Title colour */
+
+.navbar-brand {
+    color: #63340B;
+}
+
+.navbar-brand:hover {
+    color: #FDF1B8;
+}
+
+/* link colour */
+
+.nav-link {
+    color: #63340B;
+}
+
+.nav-link:hover {
+    color: #FDF1B8;
+}
