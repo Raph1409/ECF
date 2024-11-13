@@ -13,6 +13,7 @@
     <link href="/styleCSS/styleHeader.css" rel="stylesheet">
     <link href="/styleCSS/styleBigTitle.css" rel="stylesheet">
     <link href="/styleCSS/styleFooter.css" rel="stylesheet">
+    <link href="/styleCSS/styleFormLogin.css" rel="stylesheet">
     <link href="http://fonts.googleap.com/css?family=Crete+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Zoo Arcadia</title>
@@ -24,6 +25,23 @@
 
 <body>
     <?php require 'bigTitle.php'; ?>
+
+    <h2>Contact</h2>
+
+    <form class="formLogin mx-auto" action="loginPost.php" method="POST">
+        <!-- EMAIL -->
+        <label for="email" class="label">Votre mail :</label> <br><br>
+        <input type="email" name="email" class="inputBasic" required> <br><br>
+        <!-- PASSWORD -->
+        <label for="titre" class="label">Titre :</label> <br><br>
+        <input type="text" name="password" class="inputBasic" required> <br><br>
+        <!-- PASSWORD -->
+        <label for="Description" class="label">Description :</label> <br><br>
+        <textarea name="password" class="inputBasic" rows="10" cols="50" required></textarea> <br><br>
+        <!-- BUTTON -->
+        <input class="bouton" type="submit" value="Envoyer">
+    </form>
+
 </body>
 
 <footer>

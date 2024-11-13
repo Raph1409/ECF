@@ -39,9 +39,21 @@ body {
     border-radius: 5px;
     padding: 5px;
     transition: all 0.8s ease;
+    width: 500px;
+}
+
+.inputBasic2 {
+    border: 3px solid #63340B;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.8s ease;
 }
 
 .inputBasic:focus {
+    background-color: #FDF1B8;
+}
+
+.inputBasic2:focus {
     background-color: #FDF1B8;
 }
 

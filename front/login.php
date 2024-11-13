@@ -34,10 +34,10 @@
     <form class="formLogin mx-auto" action="loginPost.php" method="POST">
         <!-- EMAIL -->
         <label for="email" class="label">Adresse e-mail :</label>
-        <input type="email" name="email" class="inputBasic" required> <br><br>
+        <input type="email" name="email" class="inputBasic2" required> <br><br>
         <!-- PASSWORD -->
         <label for="password" class="label">Mot de passe :</label>
-        <input type="password" name="password" class="inputBasic" required> <br><br>
+        <input type="password" name="password" class="inputBasic2" required> <br><br>
         <!-- BUTTON -->
         <input class="bouton" type="submit" value="Se connecter">
     </form>
