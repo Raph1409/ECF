@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/front/contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Connexion/Deconnexion</a>
+                        <a class="nav-link" href="/front/login.php">Connexion/Deconnexion</a>
                     </li>
                 </ul>
             </div>

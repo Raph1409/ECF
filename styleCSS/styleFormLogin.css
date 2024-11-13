@@ -1,0 +1,63 @@
+.formLogin {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 5px;
+    background-color: #2B9613;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #63340B;
+    border-radius: 5px;
+}
+
+.label {
+    color: #63340B;
+    font-weight: bold;
+    padding-right: 30px;
+}
+
+h2 {
+    color: #FDF1B8;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 50px;
+    background-color: #63340B;
+    padding-top: 5px;
+}
+
+body {
+    background-color: #FDF1B8;
+}
+
+.inputBasic {
+    border: 3px solid #63340B;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.8s ease;
+}
+
+.inputBasic:focus {
+    background-color: #FDF1B8;
+}
+
+.bouton {
+    background-color: #63340B;
+    color: #FDF1B8;
+    border: 2px solid #FDF1B8;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.8s ease;
+}
+
+.bouton:hover {
+    background-color: #FDF1B8;
+    color: #63340B;
+    border: 2px solid #63340B;
+    border-radius: 5px;
+    font-weight: bold;
+}
