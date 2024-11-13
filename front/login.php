@@ -2,23 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <meta charset="utf_8">
+    <meta name="viewport" content="width=device-width, initial-script">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/styleCSS/styleFormLogin.css" rel="stylesheet">
+    <link href="/styleCSS/styleHeader.css" rel="stylesheet">
+    <link href="/styleCSS/styleBigTitle.css" rel="stylesheet">
+    <link href="/styleCSS/styleFooter.css" rel="stylesheet">
+    <link href="http://fonts.googleap.com/css?family=Crete+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Zoo Arcadia</title>
+
 </head>
 
+<header>
+    <?php require_once 'header.php'; ?>
+</header>
+
 <body>
-    <h1>Connexion</h1>
-    <form action="loginPost.php" method="POST">
+
+    <?php require_once 'bigtitle.php'; ?>
+
+    <h2>Connexion</h2>
+
+    <form class="formLogin mx-auto" action="loginPost.php" method="POST">
         <!-- EMAIL -->
-        <label for="email">Adresse e-mail :</label>
-        <input type="email" name="email" required> <br><br>
+        <label for="email" class="label">Adresse e-mail :</label>
+        <input type="email" name="email" class="inputBasic" required> <br><br>
         <!-- PASSWORD -->
-        <label for="password">Mot de passe :</label>
-        <input type="password" name="password" required> <br><br>
+        <label for="password" class="label">Mot de passe :</label>
+        <input type="password" name="password" class="inputBasic" required> <br><br>
         <!-- BUTTON -->
-        <input type="submit" value="Se connecter">
+        <input class="bouton" type="submit" value="Se connecter">
     </form>
 </body>
+
+<footer>
+    <?php require_once 'footer.php'; ?>
+</footer>
 
 </html>
