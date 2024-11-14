@@ -20,7 +20,7 @@
                         <a class="nav-link" href="/index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/galerie">Habitats</a>
+                        <a class="nav-link" href="/front/habitats.php">Habitats</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Services</a>
