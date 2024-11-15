@@ -14,6 +14,7 @@ try{
     $passwordForm = $_POST['password'];
     $nameForm = $_POST['name'];
     $surnameForm = $_POST['surname'];
+    $roleForm = $_POST['role'];
 
     //Vérification de l'adresse mail (unique)
     $query = "SELECT * FROM utilisateurs WHERE email = :email";
@@ -30,13 +31,14 @@ try{
     $hashedPassword = password_hash($passwordForm, PASSWORD_DEFAULT);
 
     //Insérer les données dans la base
-    $insertQuery = "INSERT INTO utilisateurs (username, email, password, nom, prenom) VALUES (:pseudo, :email, :password, :name, :surname)";
+    $insertQuery = "INSERT INTO utilisateurs (username, email, password, nom, prenom, role) VALUES (:pseudo, :email, :password, :name, :surname, :role)";
     $stmt = $pdo->prepare($insertQuery);
     $stmt->bindParam(":pseudo", $pseudoForm);
     $stmt->bindParam(":email", $emailForm);
     $stmt->bindParam(":password", $hashedPassword);
     $stmt->bindParam(":name", $nameForm);
     $stmt->bindParam(":surname", $surnameForm);
+    $stmt->bindParam(":role", $roleForm);
     $stmt->execute();
 
     echo "Création de compte réussie !";

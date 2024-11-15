@@ -58,9 +58,22 @@ try{
                 "username" => $monUtilisateur["username"],
                 "email" => $monUtilisateur["email"],
                 "role" => $monUtilisateur["role"],
+                "nom" => $monUtilisateur["nom"],
+                "prenom" => $monUtilisateur["prenom"],
             ];
 
-            var_dump($_SESSION);
+        if($_SESSION["user"]["role"] === 1){
+            
+            header("Location: /admin.php");
+
+        }else if($_SESSION["user"]["role"] === 2){
+
+            header("Location: /veterinaire.php");
+
+        }else if($_SESSION["user"]["role"] === 3){
+
+            header("Location: /employe.php");
+
 
             echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Connexion réussie ! Bienvenue " .$monUtilisateur['username'] ."</p>" ."</div>";
 
@@ -74,6 +87,7 @@ try{
 }
 
 } 
+}
 
 catch(PDOException $e) {
     echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Erreur de connexion à la base de données : ". $e->getMessage() ."</p>" ."</div>";

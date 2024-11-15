@@ -1,0 +1,26 @@
+.body {
+    display: block;
+    color: #63340B;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 5px;
+    background-color: #2B9613;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #63340B;
+    border-radius: 5px;
+}
+
+.button {
+    background-color: #63340B;
+    color: #FDF1B8;
+    border: 2px solid #FDF1B8;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.8s ease;
+}

@@ -26,6 +26,14 @@
         <label for="surname">Prénom : </label>
         <input type="text" name="surname" required><br><br>
 
+        <label for="role-select">Rôle : </label>
+
+        <select name="role" id="pet-select">
+            <option value="">--Choisissez un rôle--</option>
+            <option value="2">Vétérinaire</option>
+            <option value="3">employé(e)s</option>
+        </select> <br><br>
+
         <input type="submit" value="Créer">
 
     </form>
