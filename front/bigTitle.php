@@ -9,7 +9,7 @@
         <div class="tigre-content">
             <h1>Bienvenue au zoo écologique</h1><br>
             <h1>ARCADIA</h1><br>
-            <p>Un Voyage au Cœur de la Nature</p>
+            <h4>Un Voyage au Cœur de la Nature</h4>
         </div>
     </div>
 </body>

@@ -51,14 +51,26 @@ try{
     if($stmt->rowCount() == 1){
        $monUtilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
        if(password_verify($passwordForm, $monUtilisateur["password"])){
+            //On démarre la session
+            session_start();
+            //On stocke dans $_SESSION les informations de l'utilisateur
+            $_SESSION["user"] = [
+                "username" => $monUtilisateur["username"],
+                "email" => $monUtilisateur["email"],
+                "role" => $monUtilisateur["role"],
+            ];
+
+            var_dump($_SESSION);
+
             echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Connexion réussie ! Bienvenue " .$monUtilisateur['username'] ."</p>" ."</div>";
+
        } else {
-        echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Mot de passe incorrect" ."</p>" ."</div>";
+        echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Mot de passe et/ou email incorrect" ."</p>" ."</div>";
        }
 
 
 } else {
-    echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Utilisateur introuvable ! Vérifier votre adresse mail !" ."</p>" ."</div>";
+    echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Mot de passe et/ou email incorrect" ."</p>" ."</div>";
 }
 
 } 

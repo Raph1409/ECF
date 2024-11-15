@@ -17,13 +17,16 @@
 </head>
 
 <header>
-    <?php require 'front/header.php'; ?>
+    <?php 
+    session_start();
+    require 'front/header.php'; ?>
 </header>
 
 <body>
     <?php require 'front/bigTitle.php'; ?>
     <?php require 'front/contenu.php'; ?>
     <?php require 'front/serviceEtAnimaux.php'; ?>
+    <?php var_dump($_SESSION); ?>
 </body>
 
 <footer>
