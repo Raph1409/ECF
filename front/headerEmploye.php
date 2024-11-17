@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/employe.php">Employé</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/front/deconnexion.php">Deconnexion</a>
+                        <a class="nav-link" href="/script/deconnexion.php">Deconnexion</a>
                     </li>
                 </ul>
             </div>

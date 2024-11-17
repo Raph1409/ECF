@@ -34,7 +34,7 @@
         <p>Connexion réussie ! Bienvenue
             <?php echo $_SESSION["user"]["prenom"] ."," . "<br>" ." Vous êtes connecté en tant qu'Employé(e)s" . "<br>" . "sous le pseudo : "  . $_SESSION["user"]["username"] . "<br>" ?>
         </p>
-        <button class="button" onclick="window.location.href = 'front/deconnexion.php';"> Déconnexion </button>
+        <button class="button" onclick="window.location.href = 'script/deconnexion.php';"> Déconnexion </button>
     </div>
 
 </body>
