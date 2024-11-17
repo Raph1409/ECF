@@ -23,7 +23,7 @@
 <header>
     <?php
     session_start(); 
-    require 'front/header.php'; ?>
+    require_once 'front/headerAdmin.php'; ?>
 </header>
 
 <body>
@@ -31,9 +31,13 @@
 
     <h2>Administration</h2>
     <div class="body mx-auto">
-        <p>Bienvenue <?php echo $_SESSION["user"]["nom"] ." " . $_SESSION["user"]["email"] ?> </p>
+        <p>Connexion réussie ! Bienvenue
+            <?php echo $_SESSION["user"]["prenom"] ."," . "<br>" ." Vous êtes connecté en tant qu'Administrateur" . "<br>" . "sous le pseudo : "  . $_SESSION["user"]["username"] . "<br>" ?>
+        </p>
         <button class="button" onclick="window.location.href = 'front/deconnexion.php';"> Déconnexion </button>
     </div>
+
+    <?php require_once 'front/register.php'; ?>
 
 </body>
 

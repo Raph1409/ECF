@@ -26,10 +26,10 @@
                         <a class="nav-link" href="#">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/front/contact.php">Contact</a>
+                        <a class="nav-link" href="/employe.php">Employé</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/front/login.php">Connexion</a>
+                        <a class="nav-link" href="/front/deconnexion.php">Deconnexion</a>
                     </li>
                 </ul>
             </div>

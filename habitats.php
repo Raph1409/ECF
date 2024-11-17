@@ -21,15 +21,17 @@
 
 </head>
 
+<?php session_start(); ?>
+
 <header>
 
-    <?php require 'header.php'; ?>
+    <?php require 'script/scriptHeader.php' ?>
 
 </header>
 
 <body>
 
-    <?php require 'bigTitle.php'; ?>
+    <?php require 'front/bigTitle.php'; ?>
 
     <h2>Nos habitats et leurs animaux</h2>
 
@@ -56,7 +58,7 @@
                         Ce type d'environnement offre des refuges naturels et joue un rôle essentiel dans la filtration
                         de l'eau et la régulation du climat.
                     </p>
-                    <?php require_once '../back/marais.php'; ?>
+                    <?php require_once 'back/marais.php'; ?>
 
                 </div>
             </div>
@@ -81,7 +83,7 @@
                         et des prédateurs (lions, hyènes), et est marquée par des saisons de pluie et de sécheresse.
                         La savane joue un rôle clé dans la biodiversité et le cycle de carbone.
                     </p>
-                    <?php require_once '../back/savane.php'; ?>
+                    <?php require_once 'back/savane.php'; ?>
                 </div>
             </div>
         </div>
@@ -103,18 +105,16 @@
                         incluant des animaux comme des singes, des tigres, des oiseaux colorés et des insectes. Ce
                         milieu humide, souvent pluvieux, offre de nombreux refuges et nourritures pour ses habitants.
                     </p>
-                    <?php require_once '../back/jungle.php'; ?>
+                    <?php require_once 'back/jungle.php'; ?>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- TEST -->
-
 </body>
 
 <footer>
 
-    <?php require 'footer.php'; ?>
+    <?php require 'front/footer.php'; ?>
 
 </footer>

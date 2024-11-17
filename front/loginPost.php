@@ -75,9 +75,9 @@ try{
             header("Location: /employe.php");
 
 
-            echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Connexion réussie ! Bienvenue " .$monUtilisateur['username'] ."</p>" ."</div>";
-
-       } else {
+            echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Connexion réussie, Bienvenue " .$monUtilisateur['prenom'] ."</p>" ."</div>";
+        
+    } else {
         echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Mot de passe et/ou email incorrect" ."</p>" ."</div>";
        }
 

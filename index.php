@@ -16,10 +16,12 @@
     <title>Zoo Arcadia</title>
 </head>
 
+<?php session_start(); ?>
+
 <header>
-    <?php 
-    session_start();
-    require 'front/header.php'; ?>
+
+    <?php require_once "script/scriptHeader.php"; ?>
+
 </header>
 
 <body>

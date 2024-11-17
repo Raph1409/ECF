@@ -24,3 +24,46 @@
     font-weight: bold;
     transition: all 0.8s ease;
 }
+
+#row2 {
+    width: 80%;
+}
+
+.card {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    background-color: #2B9613;
+    border: 2px solid #63340B;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.formLogin2 {
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 5px;
+    background-color: #63340B;
+    justify-content: center;
+    text-align: center;
+    width: 75%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px solid #FDF1B8;
+    border-radius: 5px;
+}
+
+.label {
+    color: #FDF1B8;
+    font-weight: bold;
+    padding-right: 30px;
+}
+
+.inputBasic2 {
+    border: 3px solid #63340B;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.8s ease;
+    width: 65%;
+}

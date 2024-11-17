@@ -2,4 +2,4 @@
 session_start();
 unset($_SESSION["user"]);
 
-header("Location: /index.php");
+header("Location: /front/login.php");
