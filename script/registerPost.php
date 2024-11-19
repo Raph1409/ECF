@@ -19,21 +19,20 @@
 </head>
 
 <header>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../front/header.php'; ?>
 </header>
 
 <body>
 
-    <?php require_once 'bigtitle.php'; ?>
+    <?php 
+    require_once '../front/bigtitle.php'; 
+    require_once '../back/connexionBDD.php';
+    ?>
 
 
     <?php
 
-$dsn = "mysql:host=127.0.0.1;port=3307;dbname=arcadia;";
-$username = "user_php";
-$password = "4g8rkkEmn4JH89P";
 
-try{
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -74,8 +73,9 @@ try{
 
     echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Création de compte réussie !" ."</p>" . "<a style='color:#63340B; padding-top:20px; font-weight:bold;' href='/admin.php';> Retour </a>" . "</div>" ; 
 
-}
-catch(PDOException $e) {
-    echo "Erreur lors de la création du compte : ". $e->getMessage();
-}
+
 ?>
+
+    <footer>
+        <?php require_once '../front/footer.php'; ?>
+    </footer>

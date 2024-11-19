@@ -29,7 +29,7 @@
                         <a class="nav-link" href="/front/contact.php">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/front/login.php">Connexion</a>
+                        <a class="nav-link" href="/forms/login.php">Connexion</a>
                     </li>
                 </ul>
             </div>

@@ -22,16 +22,16 @@
 </head>
 
 <header>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../front/header.php'; ?>
 </header>
 
 <body>
 
-    <?php require_once 'bigtitle.php'; ?>
+    <?php require_once '../front/bigtitle.php'; ?>
 
     <h2>Connexion</h2>
 
-    <form class="formLogin mx-auto" action="loginPost.php" method="POST">
+    <form class="formLogin mx-auto" action="../script/loginPost.php" method="POST">
         <!-- EMAIL -->
         <label for="email" class="label">Adresse e-mail :</label>
         <input type="email" name="email" class="inputBasic2" required> <br><br>
@@ -44,7 +44,7 @@
 </body>
 
 <footer>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../front/footer.php'; ?>
 </footer>
 
 </html>

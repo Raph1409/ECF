@@ -19,24 +19,24 @@
 </head>
 
 <header>
-    <?php require_once 'header.php'; ?>
+
+    <?php 
+    require_once '../back/connexionBDD.php';
+    require_once '../front/header.php'; 
+    ?>
 </header>
 
 <body>
 
-    <?php require_once 'bigtitle.php'; ?>
+    <?php require_once '../front/bigtitle.php'; ?>
 
     <h2>Connexion</h2>
 
     <?php
 
-$dsn = "mysql:host=127.0.0.1;port=3307;dbname=arcadia;";
-$username = "user_php";
-$password = "4g8rkkEmn4JH89P";
 
-try{
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
 
     //Récupérer les données du formulaire de connexion
     $emailForm = $_POST['email'];
@@ -87,18 +87,14 @@ try{
 }
 
 } 
-}
 
-catch(PDOException $e) {
-    echo '<div class="bienvenue mx-auto">' . " <p style='color:#63340B; padding-top:20px; font-weight:bold;'>" . "Erreur de connexion à la base de données : ". $e->getMessage() ."</p>" ."</div>";
-}
 
 ?>
 
 </body>
 
 <footer>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../front/footer.php'; ?>
 </footer>
 
 </html>
