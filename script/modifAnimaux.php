@@ -41,7 +41,8 @@
 
     //On convertit rapportForm en entier INT
     $rapportForm = (int) $rapportForm;
-    $habitatForm = (int) $habitatForm;
+    
+
 
     //On récupère toute les données de nos animaux
     $sql = "SELECT prenom, habitat, etat, rapport FROM animaux";
@@ -55,6 +56,7 @@
     $etat = $row["etat"];
     $rapport = $row["rapport"];
     }
+
 
     //mapping
     $habitatFormMapping = [
@@ -94,18 +96,10 @@
     //On défini une variable de type tableau qui va contenir tout les messages de succès
     $successMessages = [];
 
-    if ($prenomForm !== $animalForm && $prenomForm !== null) {
-        $insertPrenom = "UPDATE animaux SET prenom = :prenom WHERE prenom = :ancienPrenom";
-        $stmt2 = $pdo->prepare($insertPrenom);
-        $stmt2->bindParam(":prenom", $prenomForm);
-        $stmt2->bindParam(":ancienPrenom", $animalForm);
-        $stmt2->execute();
-        $successMessages[] = "Le prénom à bien été modifié !";
-    }
-
     if (array_key_exists($habitatForm, $habitatFormMapping)) {
         // Récupérer le code correspondant
         $habitatCode = $habitatFormMapping[$habitatForm]; 
+
         // Vérifier si le code est différent de l'actuel et non null
         if ($habitatCode !== $animalHabitat && $habitatCode !== null){
         // Préparer et exécuter la requête   
@@ -150,7 +144,17 @@
     
     } else {}
 
+    if ($prenomForm !== $animalForm && $prenomForm !== null) {
+        $insertPrenom = "UPDATE animaux SET prenom = :prenom WHERE prenom = :ancienPrenom";
+        $stmt2 = $pdo->prepare($insertPrenom);
+        $stmt2->bindParam(":prenom", $prenomForm);
+        $stmt2->bindParam(":ancienPrenom", $animalForm);
+        $stmt2->execute();
+        $successMessages[] = "Le prénom de " . $animalForm .  " à bien été modifié !";
+    }
+
     $etatForm = (int) $etatForm;
+    $habitatForm = (int) $habitatForm;
 
     // Vérifier si une modification à été faite
     if ((isset($prenomForm) && $prenomForm === $animalPrenom) &&
