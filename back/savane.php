@@ -10,61 +10,72 @@
 
 <body>
 
-    <section id="marketing1">
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/elephant2.jpg" aria-label="Placeholder: 140x140"
-                        preserveAspectRatio="xMidYMid slice" focusable="false" alt="Card image cap">
-                    <h3>L'Eléphant d'Afrique</h3>
-                    <p>Des achats optimisés avec des économies jusqu'à 15% sur vos factures.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/giraffe.jpg" aria-label="Placeholder: 140x140"
-                        preserveAspectRatio="xMidYMid slice" focusable="false" alt="Card image cap">
-                    <h3>La Girafe</h3>
-                    <p>Une vision sur le passé, le présent et le futur pour vous permettre d'anticiper
-                        vos cartes et menus avec le plus de cohérence possible.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/gnou.jpg" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" alt="Card image cap">
-                    <h3>Le Gnou</h3>
-                    <p>Un gain de temps non négligeable a l'heure des pénuries de personnels.</p>
-                </div>
-    </section>
+    <?php require_once 'connexionBDD.php'; 
 
-    <section id="marketing1">
+    $queryAnimals = "SELECT 
+        animaux.prenom,
+        races.nom_race AS race_nom,
+        sexes.nom_sexe AS sexe_nom,
+        etats.nom_etat AS etat_nom,
+        rapports_veterinaire.detail AS rapport_detail,
+        habitats.nom AS habitat_nom
+    FROM animaux
+    LEFT JOIN races ON animaux.race = races.race_id
+    LEFT JOIN sexes ON animaux.sexe = sexes.sexe_id
+    LEFT JOIN etats ON animaux.etat = etats.id
+    LEFT JOIN rapports_veterinaire ON animaux.rapport = rapports_veterinaire.rapport_veterinaire_id
+    LEFT JOIN habitats ON animaux.habitat = habitats.habitat_id WHERE habitats.nom = 'Savane'";
+    $stmt = $pdo->prepare($queryAnimals);
+    $stmt->execute();
+    $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        <div class="container marketing">
-            <div class="row">
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/guepard.jpg" aria-label="Placeholder: 140x140"
-                        preserveAspectRatio="xMidYMid slice" focusable="false" alt="Card image cap">
-                    <h3>Le Guépard</h3>
-                    <p>Des achats optimisés avec des économies jusqu'à 15% sur vos factures.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/lion.png" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" alt="Card image cap">
-                    <h3>Le Lion</h3>
-                    <p>Une vision sur le passé, le présent et le futur pour vous permettre d'anticiper
-                        vos cartes et menus avec le plus de cohérence possible.</p>
-                </div>
-                <div class="col-lg-4">
-                    <img class="bd-placeholder-img rounded-circle" id="img-animaux" width="140" height="140"
-                        src="../images/zebre.jpg" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice"
-                        focusable="false" alt="Card image cap">
-                    <h3>Le Zèbre</h3>
-                    <p>Un gain de temps non négligeable a l'heure des pénuries de personnels.</p>
-                </div>
+    //Organiser les animaux par race
+    $animalsByRace = [];
+    foreach ($animals as $animal) {
+        $race = $animal["race_nom"];
+        if(!isset($animalsByRace[$race])) {
+            //initialiser un tableau pour chaque race
+            $animalsByRace[$race] = [];
+        }
+        //Ajouter l'animal à la race correspondante
+        $animalsByRace[$race][] = $animal;
+    }
 
-    </section>
+    $raceImages = [
+        "Gnou"=> "images/gnou.jpg",
+        "Guépard"=> "images/guepard.jpg",
+        "Lion"=> "images/lion.png",
+        "Zèbre"=> "images/zebre.jpg",
+        "Girafe"=> "images/giraffe.jpg",
+        "Eléphant d'Afrique"=> "images/elephant2.jpg",
+    ];
+
+    
+
+    foreach ($animalsByRace as $race => $animals) {
+        echo "<h4 class='h4race'>$race</h4>" . "<br>";
+
+        if (isset($raceImages[$race])) {
+            echo "<img src='" . $raceImages[$race] . "' alt='Image de $race' style='width:200px; height:auto; margin-bottom:30px;'><br>";
+        } 
+
+            echo "<div class='container'><div class='row'>";
+        foreach ($animals as $animal) {
+            echo "<div class='col-12 col-md-6 mb-3'>
+                <p class='p_animal w-75 mx-auto'>
+                    <span class='underline'>Prénom :</span> " . "  " . $animal['prenom'] . "<br>" . 
+                    "<span class='underline'>Sexe :</span> " . "  " . $animal['sexe_nom'] . "<br>" . 
+                    "<span class='underline'>État :</span> " . "  " . $animal['etat_nom'] . "<br>" . 
+                    "<span class='underline'>Habitat :</span> " . "  " . $animal['habitat_nom'] . "<br>" .
+                    "<span class='underline'>Rapport :</span> " . "  " . $animal['rapport_detail'] . "
+                </p>
+            </div>";
+                }
+
+                    echo "</div></div>";
+            } 
+            ?>
+
 </body>
 
 </html>
