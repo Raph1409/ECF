@@ -44,6 +44,7 @@ h2 {
 .underline {
     text-decoration: underline;
     color: #63340B;
+    max-height: 100%;
 }
 
 h3 {

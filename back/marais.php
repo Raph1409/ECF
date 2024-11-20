@@ -32,7 +32,7 @@ foreach ($animals as $animal) {
 $raceImages = [
     "Loutre d'Europe" => "images/loutre.jpg",
     "Flamand rose" => "images/flamand.jpg",
-    "Capibara" => "images/capybaras.jpg",
+    "Capybara" => "images/capybaras.jpg",
     "Aligator du Mississipi" => "images/aligator.jpg",
     "Rhinocéros indien" => "images/indian-rhinoceros.jpg",
     "Buffle d'Asie" => "images/buffalo.jpg",
