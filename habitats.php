@@ -40,7 +40,7 @@
     <div class="accordion mx-auto" id="accordionExample">
         <div class="accordion-item">
             <h2>LES MARAIS</h2>
-            <img src="../images/marais.jpg" class="img-responsive" alt="Responsive image">
+            <img src="../images/Marais.jpg" class="img-responsive" alt="Responsive image">
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">

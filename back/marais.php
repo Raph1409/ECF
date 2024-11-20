@@ -1,89 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+require_once 'connexionBDD.php'; 
 
-<head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <meta charset="utf_8">
-    <meta name="viewport" content="width=device-width, initial-script">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="/styleCSS/styleHabitats.css" rel="stylesheet">
-    <title>Document</title>
-</head>
+$queryAnimals = "SELECT 
+    animaux.prenom,
+    races.nom_race AS race_nom,
+    sexes.nom_sexe AS sexe_nom,
+    etats.nom_etat AS etat_nom,
+    rapports_veterinaire.detail AS rapport_detail,
+    habitats.nom AS habitat_nom
+FROM animaux
+LEFT JOIN races ON animaux.race = races.race_id
+LEFT JOIN sexes ON animaux.sexe = sexes.sexe_id
+LEFT JOIN etats ON animaux.etat = etats.id
+LEFT JOIN rapports_veterinaire ON animaux.rapport = rapports_veterinaire.rapport_veterinaire_id
+LEFT JOIN habitats ON animaux.habitat = habitats.habitat_id WHERE habitats.nom = 'Marais'";
 
-<body>
+$stmt = $pdo->prepare($queryAnimals);
+$stmt->execute();
+$animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    <?php require_once 'connexionBDD.php'; 
+// Organiser les animaux par race
+$animalsByRace = [];
+foreach ($animals as $animal) {
+    $race = $animal["race_nom"];
+    if (!isset($animalsByRace[$race])) {
+        $animalsByRace[$race] = [];
+    }
+    $animalsByRace[$race][] = $animal;
+}
 
-    $queryAnimals = "SELECT 
-        animaux.prenom,
-        races.nom_race AS race_nom,
-        sexes.nom_sexe AS sexe_nom,
-        etats.nom_etat AS etat_nom,
-        rapports_veterinaire.detail AS rapport_detail,
-        habitats.nom AS habitat_nom
-    FROM animaux
-    LEFT JOIN races ON animaux.race = races.race_id
-    LEFT JOIN sexes ON animaux.sexe = sexes.sexe_id
-    LEFT JOIN etats ON animaux.etat = etats.id
-    LEFT JOIN rapports_veterinaire ON animaux.rapport = rapports_veterinaire.rapport_veterinaire_id
-    LEFT JOIN habitats ON animaux.habitat = habitats.habitat_id WHERE habitats.nom = 'Marais'";
-    $stmt = $pdo->prepare($queryAnimals);
-    $stmt->execute();
-    $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$raceImages = [
+    "Loutre d'Europe" => "images/loutre.jpg",
+    "Flamand rose" => "images/flamand.jpg",
+    "Capibara" => "images/capybaras.jpg",
+    "Aligator du Mississipi" => "images/aligator.jpg",
+    "Rhinocéros indien" => "images/indian-rhinoceros.jpg",
+    "Buffle d'Asie" => "images/buffalo.jpg",
+];
 
-    //Organiser les animaux par race
-    $animalsByRace = [];
-    foreach ($animals as $animal) {
-        $race = $animal["race_nom"];
-        if(!isset($animalsByRace[$race])) {
-            //initialiser un tableau pour chaque race
-            $animalsByRace[$race] = [];
-        }
-        //Ajouter l'animal à la race correspondante
-        $animalsByRace[$race][] = $animal;
+foreach ($animalsByRace as $race => $animals) {
+    echo "<h4 class='h4race'>$race</h4><br>";
+
+    // Affichage de l'image de la race, si elle existe
+    if (isset($raceImages[$race])) {
+        echo "<img src='" . $raceImages[$race] . "' alt='Image de $race' style='width:200px; height:150px; margin-bottom:30px;'><br>";
     }
 
-    $raceImages = [
-        "Loutre d'Europe"=> "images/loutre.jpg",
-        "Flamand rose"=> "images/flamand.jpg",
-        "Capibara"=> "images/capybaras.jpg",
-        "Aligator du Mississipi"=> "images/aligator.jpg",
-        "Rhinocéros indien"=> "images/indian-rhinoceros.jpg",
-        "Buffle d'Asie"=> "images/buffalo.jpg",
-    ];
+    echo "<div class='container'><div class='row'>";
+    foreach ($animals as $animal) {
+        $animalId = htmlspecialchars($animal['prenom'], ENT_QUOTES, 'UTF-8');
 
-    
-
-    foreach ($animalsByRace as $race => $animals) {
-        echo "<h4 class='h4race'>$race</h4>" . "<br>";
-
-        if (isset($raceImages[$race])) {
-            echo "<img src='" . $raceImages[$race] . "' alt='Image de $race' style='width:200px; height:auto; margin-bottom:30px;'><br>";
-        } 
-
-            echo "<div class='container'><div class='row'>";
-        foreach ($animals as $animal) {
-            echo "<div class='col-12 col-md-6 mb-3'>
-                <p class='p_animal w-75 mx-auto'>
-                    <span class='underline'>Prénom :</span> " . "  " . $animal['prenom'] . "<br>" . 
-                    "<span class='underline'>Sexe :</span> " . "  " . $animal['sexe_nom'] . "<br>" . 
-                    "<span class='underline'>État :</span> " . "  " . $animal['etat_nom'] . "<br>" . 
-                    "<span class='underline'>Habitat :</span> " . "  " . $animal['habitat_nom'] . "<br>" .
-                    "<span class='underline'>Rapport :</span> " . "  " . $animal['rapport_detail'] . "
-                </p>
-            </div>";
-                }
-
-                    echo "</div></div>";
-            } 
-            ?>
-
-
-</body>
-
-</html>
+        echo "<div class='col-12 col-md-6 mb-3'>
+            <!-- Accordéon pour chaque animal -->
+            <div class='accordion mx-auto' id='accordionAnimal$animalId'>
+                <div class='accordion-item'>
+                    <h2 class='accordion-header' id='heading$animalId'>
+                        <button class='btn btn-link collapsed' type='button' data-bs-toggle='collapse'
+                            data-bs-target='#collapse$animalId' aria-expanded='false' aria-controls='collapse$animalId'>
+                            " . htmlspecialchars($animal['prenom'], ENT_QUOTES, 'UTF-8') . "
+                        </button>
+                    </h2>
+                    <div id='collapse$animalId' class='accordion-collapse collapse' aria-labelledby='heading$animalId'>
+                        <div class='accordion-body'>
+                            <p class='p_animal'>
+                                <span class='underline'>Sexe :</span> " . htmlspecialchars($animal['sexe_nom'], ENT_QUOTES, 'UTF-8') . "<br>
+                                <span class='underline'>État :</span> " . htmlspecialchars($animal['etat_nom'], ENT_QUOTES, 'UTF-8') . "<br>
+                                <span class='underline'>Habitat :</span> " . htmlspecialchars($animal['habitat_nom'], ENT_QUOTES, 'UTF-8') . "<br>
+                                <span class='underline'>Rapport :</span> " . htmlspecialchars($animal['rapport_detail'], ENT_QUOTES, 'UTF-8') . "
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>";
+    }
+    echo "</div></div>";
+}
+?>
