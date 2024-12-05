@@ -36,6 +36,20 @@
         </p>
         <button class="button" onclick="window.location.href = 'script/deconnexion.php';"> Déconnexion </button>
     </div>
+    <div class="container">
+        <div class="col-sm-6">
+            <div class="card">
+                <h2>Créer un Rapport</h2>
+                <?php require_once 'forms/creerRapport.php'; ?>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h2>Modifier le rapport d'un animal</h2>
+                <?php require_once 'forms/selectAnimalForm2.php'; ?>
+            </div>
+        </div>
+    </div>
 
 </body>
 

@@ -30,7 +30,7 @@
 <body>
     <?php require '../front/bigTitle.php';
     
-    //On récupère les données du formulaire modifAnimauxform1 
+    //On récupère les données du formulaire modifAnimauxform 
     $animalForm = $_POST['animal'];?>
 
     <h2>Modification de <?php echo $animalForm; ?> </h2>
@@ -81,7 +81,7 @@
     $animalRapport = $row["rapport"];
     }
 
-    //Onréalise le mapping de l'habitat pour la récupération du nom à la place de l'id
+    //Onréalise le mapping de l'habitat et de l'etat pour la récupération du nom à la place de l'id
     $animalHabitatMapping = [
         1 => 'Marais',
         2 => 'Savane',
